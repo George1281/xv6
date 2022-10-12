@@ -20,10 +20,18 @@ sys_exit(void)
   return 0;  // not reached
 }
 
+//J.H
 int
-sys_wait(void)
+sys_exitStat(int status)
 {
-  return wait();
+    exitStat(status);
+    return 0;  // not reached
+}
+
+int
+sys_wait(int * status)
+{
+    return wait(status);
 }
 
 int
@@ -88,4 +96,11 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+
+int
+sys_hello(void)
+{
+    hello();
+    return 0;
 }

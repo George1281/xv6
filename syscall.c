@@ -103,6 +103,8 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
+extern int sys_hello(void); //J.H.
+extern int sys_exitStat(int); //J.H
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -126,6 +128,11 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+[SYS_hello]   sys_hello, //J.H.
+};
+
+static int (*syscallsInt[])(int) = {
+        [SYS_exitStat]  sys_exitStat, //J.H.
 };
 
 void
@@ -142,4 +149,20 @@ syscall(void)
             curproc->pid, curproc->name, num);
     curproc->tf->eax = -1;
   }
+}
+
+void
+syscallInt(int status)
+{
+    int num;
+    struct proc *curproc = myproc();
+
+    num = curproc->tf->eax;
+    if(num > 0 && num < NELEM(syscallsInt) && syscallsInt[num]) {
+        curproc->tf->eax = syscallsInt[num](status);
+    } else {
+        cprintf("%d %s: unknown sys call %d\n",
+                curproc->pid, curproc->name, num);
+        curproc->tf->eax = -1;
+    }
 }

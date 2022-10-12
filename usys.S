@@ -29,3 +29,5 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+SYSCALL(hello) //J.H.
+SYSCALL(exitStat) //J.H.

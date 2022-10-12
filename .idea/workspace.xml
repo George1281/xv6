@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3140a714-83c5-4976-a83e-413b547fd7b3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/defs.h" beforeDir="false" afterPath="$PROJECT_DIR$/defs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forktest.c" beforeDir="false" afterPath="$PROJECT_DIR$/forktest.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/init.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sh.c" beforeDir="false" afterPath="$PROJECT_DIR$/sh.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stressfs.c" beforeDir="false" afterPath="$PROJECT_DIR$/stressfs.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.h" beforeDir="false" afterPath="$PROJECT_DIR$/user.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usertests.c" beforeDir="false" afterPath="$PROJECT_DIR$/usertests.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usys.S" beforeDir="false" afterPath="$PROJECT_DIR$/usys.S" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="ey7z8yiy" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FS987ftKvKBlZduBQ4gQyt9c6n" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="gdb-remote" type="CLion_Remote" version="1" remoteCommand="localhost:29548" symbolFile="$PROJECT_DIR$/kernel" sysroot="$PROJECT_DIR$">
+      <debugger kind="GDB" isBundled="true" />
+      <pathMapping remote=":/home/csmajs/jagui236/xv6" local="$PROJECT_DIR$/" />
+      <pathMapping remote=":" local="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3140a714-83c5-4976-a83e-413b547fd7b3" name="Default Changelist" comment="" />
+      <created>1664474455911</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664474455911</updated>
+      <workItem from="1664474457115" duration="5858000" />
+      <workItem from="1664487076312" duration="13000" />
+      <workItem from="1664487103035" duration="1832000" />
+      <workItem from="1664489883106" duration="71000" />
+      <workItem from="1664490026320" duration="10000" />
+      <workItem from="1664490054211" duration="3706000" />
+      <workItem from="1665096387218" duration="9000" />
+      <workItem from="1665096408867" duration="3859000" />
+      <workItem from="1665526210246" duration="7560000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Makefile" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
