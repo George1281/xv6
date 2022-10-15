@@ -4,8 +4,7 @@
 
 int main(int argc, char *argv[]){
 //    hello();
-    int hi =2 ;
-    int* ptr = & hi;
-    wait(ptr);
+
     exitStat(20);
+    exit();
 }

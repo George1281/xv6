@@ -15,20 +15,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3140a714-83c5-4976-a83e-413b547fd7b3" name="Default Changelist" comment="">
+    <list default="true" id="3140a714-83c5-4976-a83e-413b547fd7b3" name="Default Changelist" comment="Starter">
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/defs.h" beforeDir="false" afterPath="$PROJECT_DIR$/defs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forktest.c" beforeDir="false" afterPath="$PROJECT_DIR$/forktest.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.c" beforeDir="false" afterPath="$PROJECT_DIR$/init.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sh.c" beforeDir="false" afterPath="$PROJECT_DIR$/sh.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stressfs.c" beforeDir="false" afterPath="$PROJECT_DIR$/stressfs.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.h" beforeDir="false" afterPath="$PROJECT_DIR$/user.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usertests.c" beforeDir="false" afterPath="$PROJECT_DIR$/usertests.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usys.S" beforeDir="false" afterPath="$PROJECT_DIR$/usys.S" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,8 +93,19 @@
       <workItem from="1664490054211" duration="3706000" />
       <workItem from="1665096387218" duration="9000" />
       <workItem from="1665096408867" duration="3859000" />
-      <workItem from="1665526210246" duration="7560000" />
+      <workItem from="1665526210246" duration="9871000" />
+      <workItem from="1665857422542" duration="791000" />
+      <workItem from="1665858275863" duration="9168000" />
+      <workItem from="1665867468846" duration="3681000" />
     </task>
+    <task id="LOCAL-00001" summary="Starter">
+      <created>1665535361378</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665535361378</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,10 +119,37 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Starter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starter" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/zombie.c</url>
+          <line>9</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -17,22 +17,17 @@ int
 sys_exit(void)
 {
   exit();
-  return 0;  // not reached
-}
-
-//J.H
-int
-sys_exitStat(int status)
-{
-    exitStat(status);
-    return 0;  // not reached
+  return 0;
 }
 
 int
-sys_wait(int * status)
+sys_wait(void)
 {
+    int *status;
+    argptr(0, (void*)&status, sizeof(status));
     return wait(status);
 }
+
 
 int
 sys_kill(void)
@@ -103,4 +98,31 @@ sys_hello(void)
 {
     hello();
     return 0;
+}
+
+//J.H
+int
+sys_exitStat(void)
+{
+    int statusExit;
+    if(argint(0, &statusExit) < 0){
+        return -1;
+    }
+    return exitStat(statusExit);  // not reached
+}
+
+int
+sys_waitpid(void)
+{
+    int pid;
+    int options = 0;
+    int* status;
+    if(argint(0, &pid) < 0){
+        return -1;
+    }
+
+    if(argptr(1, (void*)&status, sizeof(status)) < 0){
+        return -1;
+    }
+    return waitpid(pid, status, options);
 }

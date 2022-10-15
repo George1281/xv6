@@ -1,4 +1,5 @@
 #include "syscall.h"
+#include "syscall.h"
 #include "traps.h"
 
 #define SYSCALL(name) \
@@ -29,5 +30,6 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
-SYSCALL(hello) //J.H.
-SYSCALL(exitStat) //J.H.
+SYSCALL(exitStat)
+SYSCALL(waitpid)
+
