@@ -124,6 +124,7 @@ void            hello(void); //J.H.
 
 int exitStat(int); //J.H
 int waitpid(int, int*, int); //J.H
+void setprior(int); // J.h
 
 // swtch.S
 void            swtch(struct context**, struct context*);

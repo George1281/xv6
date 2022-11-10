@@ -107,6 +107,7 @@ extern int sys_hello(void); //J.H.
 // Added two new syscalls below - assignment 1
 extern int sys_exitStat(void); //J.H
 extern int sys_waitpid(void); //J.H
+extern int sys_setprior(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -133,6 +134,7 @@ static int (*syscalls[])(void) = {
 [SYS_hello]   sys_hello, //J.H.
 [SYS_exitStat]  sys_exitStat, //J.H. Assignment 1
 [SYS_waitpid]  sys_waitpid, //J.H. Assignment 1
+[SYS_setprior] sys_setprior,
 };
 
 void

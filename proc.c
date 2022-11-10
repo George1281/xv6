@@ -88,7 +88,8 @@ allocproc(void)
 found:
   p->state = EMBRYO;
   p->pid = nextpid++;
-
+  p->priority = 0;
+  p->T_start = ticks;
   release(&ptable.lock);
 
   // Allocate kernel stack.
@@ -97,7 +98,7 @@ found:
     return 0;
   }
   sp = p->kstack + KSTACKSIZE;
-
+  
   // Leave room for trap frame.
   sp -= sizeof *p->tf;
   p->tf = (struct trapframe*)sp;
@@ -199,7 +200,7 @@ fork(void)
   np->sz = curproc->sz;
   np->parent = curproc;
   *np->tf = *curproc->tf;
-
+  np->priority = curproc->priority;
   // Clear %eax so that fork returns 0 in the child.
   np->tf->eax = 0;
 
@@ -230,7 +231,6 @@ exit(void)
   struct proc *curproc = myproc();
   struct proc *p;
   int fd;
-
   if(curproc == initproc)
     panic("init exiting");
 
@@ -247,6 +247,9 @@ exit(void)
   end_op();
   curproc->cwd = 0;
 
+  curproc->T_end = ticks;
+  int temp = curproc->T_end - curproc->T_start;
+  cprintf("this is the turnaround time %d", (temp));
   acquire(&ptable.lock);
 
   // Parent might be sleeping in wait().
@@ -326,36 +329,65 @@ wait(int* status)
 void
 scheduler(void)
 {
-  struct proc *p;
+  struct proc *p, *theone;
   struct cpu *c = mycpu();
+  theone =0;
   c->proc = 0;
-
+  int check=0;
+  int min = 31;
   for(;;){
     // Enable interrupts on this processor.
     sti();
-
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
-        continue;
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+    {
+      if(p->state == RUNNABLE)
+      {
+        if(min > p->priority)
+        {
+            check = 1;
+            min = p->priority;
+            theone = p;
+        }
 
+      }
+    }
+    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
+    {
+      if(p->state == RUNNABLE)
+      {
+        if(p!= theone)
+        {
+            if(p->priority != 0)
+            p->priority--;
+        }
+
+      }
+    }
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
-      c->proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
+      if(check ==1 )
+      {
+      int temp = theone->priority;
+      temp = (temp + 1)%31;
+      theone->priority = temp;
+      }
 
-      swtch(&(c->scheduler), p->context);
+
+      c->proc = theone;
+      switchuvm(theone);
+      theone->state = RUNNING;
+      
+      swtch(&(c->scheduler), theone->context);
       switchkvm();
 
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       c->proc = 0;
-    }
+      
     release(&ptable.lock);
-
   }
 }
 
@@ -641,4 +673,9 @@ waitpid(int pid, int* status, int options)
         // Wait for children to exit.  (See wakeup1 call in proc_exit.)
         sleep(curproc, &ptable.lock);  //DOC: wait-sleep
     }
+}
+void
+setprior(int prior_lvl)
+{
+myproc()->priority = prior_lvl;
 }
