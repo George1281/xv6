@@ -131,15 +131,11 @@ int
 sys_setprior(void)
 {
   int priority;
-  if(priority > 31 && priority<0)
+  if(argint(0,&priority)<0)
   {
     return -1;
   }
 
-  if(argint(0,&priority) < 0)
-  {
-    return -1;
-  }
   setprior(priority);
   return 0;
 }

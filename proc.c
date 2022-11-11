@@ -362,14 +362,14 @@ scheduler(void)
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
       
+      p->state = RUNNING;
+      p->priority = (p->priority + 1) % 32;
       c->proc = p;
       switchuvm(p);
-      p->state = RUNNING;
-      p->priority++;
+
       
       swtch(&(c->scheduler), p->context);
       switchkvm();
-
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       c->proc = 0;
@@ -664,6 +664,9 @@ waitpid(int pid, int* status, int options)
 void
 setprior(int prior_lvl)
 {
+  acquire(&ptable.lock);
   struct proc* p = myproc();
   p->priority = (prior_lvl%31);
+  cprintf("my pid is %d and my priority is %d\n" ,p->pid, prior_lvl);
+              release(&ptable.lock);
 }
