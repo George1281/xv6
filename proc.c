@@ -329,64 +329,51 @@ wait(int* status)
 void
 scheduler(void)
 {
-  struct proc *p, *theone;
+  struct proc *p;
   struct cpu *c = mycpu();
-  theone =0;
   c->proc = 0;
-  int check=0;
-  int min = 31;
+  int low_priority;
   for(;;){
     // Enable interrupts on this processor.
     sti();
     // Loop over process table looking for process to run.
+
     acquire(&ptable.lock);
+    low_priority = 1000;
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
     {
-      if(p->state == RUNNABLE)
+      if(p->state == RUNNABLE && p->priority < low_priority)
       {
-        if(min > p->priority)
-        {
-            check = 1;
-            min = p->priority;
-            theone = p;
-        }
-
+        low_priority = p->priority;
       }
     }
+
+
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++)
     {
-      if(p->state == RUNNABLE)
-      {
-        if(p!= theone)
-        {
-            if(p->priority != 0)
-            p->priority--;
-        }
+      if(p->state != RUNNABLE) continue;
 
+      if(p->priority != low_priority)
+      {
+          if(p->priority > 0) p->priority--;
+          continue;
       }
-    }
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
-      if(check ==1 )
-      {
-      int temp = theone->priority;
-      temp = (temp + 1)%31;
-      theone->priority = temp;
-      }
-
-
-      c->proc = theone;
-      switchuvm(theone);
-      theone->state = RUNNING;
       
-      swtch(&(c->scheduler), theone->context);
+      c->proc = p;
+      switchuvm(p);
+      p->state = RUNNING;
+      p->priority++;
+      
+      swtch(&(c->scheduler), p->context);
       switchkvm();
 
       // Process is done running for now.
       // It should have changed its p->state before coming back.
       c->proc = 0;
-      
+    }
     release(&ptable.lock);
   }
 }
@@ -677,5 +664,6 @@ waitpid(int pid, int* status, int options)
 void
 setprior(int prior_lvl)
 {
-myproc()->priority = prior_lvl;
+  struct proc* p = myproc();
+  p->priority = (prior_lvl%31);
 }
