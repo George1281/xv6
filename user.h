@@ -26,6 +26,7 @@ int sleep(int);
 int uptime(void);
 int hello(void);
 int waitpid(int, int*, int); // Assignment 1;
+int setprior(int); // Assignment 2
 // ulib.c
 int stat(const char*, struct stat*);
 char* strcpy(char*, const char*);

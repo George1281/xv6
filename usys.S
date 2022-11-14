@@ -32,4 +32,4 @@ SYSCALL(sleep)
 SYSCALL(uptime)
 SYSCALL(exitStat)
 SYSCALL(waitpid)
-
+SYSCALL(setprior)
